@@ -79,5 +79,21 @@ const populateVisualization = () => {
 officialResult.addEventListener("input", function ({ target }) {
   populateVisualization();
 });
-
 populateVisualization();
+
+const copyButton = document.getElementById("copy-button");
+
+const copyToClipboard = () => {
+  // Copy the value to the clipboard
+  navigator.clipboard.writeText(visualization.value).then(
+    () => {
+      copyButton.textContent = "Copied!";
+    },
+    (err) => {
+      console.error("Failed to copy: ", err);
+    }
+  );
+};
+
+copyButton.addEventListener("click", copyToClipboard);
+visualization.addEventListener("focus", copyToClipboard);

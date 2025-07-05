@@ -1,26 +1,31 @@
 body {
   display: flex;
-  flex-direction: column;;
-  height: 100vh;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 1em 3em;
+  max-width: 60em;
 }
 
 main {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1em auto;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: 1em auto 3em;
   grid-template-areas:
     "a c"
-    "b d";
-  gap: 10px;
+    "b d"
+    "b e";
+  gap: 0.5em;
   width: 100%;
 }
 
 main > label[for="official-result"] {
   grid-area: a;
+  margin-right: 2em;
 }
 main > #official-result {
   grid-area: b;
+  margin-right: 2em;
 }
 
 main > label {
@@ -29,4 +34,11 @@ main > label {
 }
 main > #visualization {
   grid-area: d;
+}
+main > #copy-to-clipboard {
+  grid-area: e;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
