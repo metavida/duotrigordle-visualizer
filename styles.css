@@ -1,9 +1,21 @@
+/* CSS variables from Duotrigordle */
+:root {
+  --black: hsl(240, 10%, 0%);
+  --white: #fff;
+  --gray-2: hsl(240, 10%, 20%);
+  --gray-4: hsl(240, 10%, 40%);
+}
+
 body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   padding: 1em 3em;
   max-width: 60em;
+
+  background: #000;
+  color: #fff;
+  font-family: Rubik, sans-serif;
 }
 
 main {
@@ -17,6 +29,14 @@ main {
     "b e";
   gap: 0.5em;
   width: 100%;
+}
+
+textarea {
+  background: var(--gray-2);
+  color: var(--white);
+  padding: 1em;
+  font-family: monospace, monospace;
+  font-size: 0.9em;
 }
 
 main > label[for="official-result"] {
@@ -34,11 +54,18 @@ main > label {
 }
 main > #visualization {
   grid-area: d;
+  cursor: pointer;
 }
-main > #copy-to-clipboard {
+main > #copy-button {
   grid-area: e;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.1em;
+
+  background: var(--gray-4);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
 }
