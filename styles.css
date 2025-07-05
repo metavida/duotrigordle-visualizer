@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  flex-direction: column;;
+  height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1em auto;
+  grid-template-areas:
+    "a c"
+    "b d";
+  gap: 10px;
+  width: 100%;
+}
+
+main > label[for="official-result"] {
+  grid-area: a;
+}
+main > #official-result {
+  grid-area: b;
+}
+
+main > label {
+  grid-area: c;
+  font-weight: bold;
+}
+main > #visualization {
+  grid-area: d;
+}
