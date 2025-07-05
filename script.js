@@ -28,17 +28,44 @@ const renderNewVisualization = (value) => {
   // the answer grid is lines 3 - 10
   const grid = lines.slice(2, 10).join(" ");
 
-  // Next we'll get our list of numbers
+  // Next we'll get our sorted list of integers
   const numbers = grid
     .split(" ")
     .map(convertEmojiNumberToString)
     .sort((a, b) => a - b);
 
-  // const grid = value.replace(regexp, "");
-  console.log({ numbers });
+  // Then we'll generate an array of emoji results
+  const results = [];
+  let currentGuess = 0;
+  let numWrongGuesses = 0;
+  numbers.forEach((nextCorrectGuess) => {
+    currentGuess++;
 
-  // TODO: Generate the hit/miss visualization
-  return [...header, numbers.join(" "), ...footer].join("\n");
+    // If the next correct guess is greater than the current guess
+    // we need to fill in the missing numbers
+    while (currentGuess < nextCorrectGuess) {
+      currentGuess++;
+      numWrongGuesses++;
+      results.push(numWrongGuesses > 5 ? "🟥" : "🟨");
+    }
+
+    // Now we can add the correct guess
+    results.push("🟩");
+  });
+
+  // Now we'll join the results into a string
+  // with a line break after every 8 characters
+
+  let numLineBreaks = Math.floor(results.length / 8.0);
+  while (numLineBreaks > 0) {
+    // Add a line break after every 8 results
+    // starting with the "end" of the results
+    // so that it doesn't thow off the index count.
+    results.splice(numLineBreaks * 8, 0, "\n");
+    numLineBreaks--;
+  }
+
+  return [...header, results.join(""), ...footer].join("\n");
 };
 
 const officialResult = document.getElementById("official-result");
