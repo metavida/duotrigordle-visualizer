@@ -18,7 +18,7 @@ const renderNewVisualization = (value) => {
   // the answer grid is lines 3 - 10
   const grid = lines.slice(2, 10).join(" ");
 
-  if (header.length !== 2 || grid.length < 10) {
+  if (header.length !== 2 || !header[1].match(/^Guesses/) || grid.length < 10) {
     return "";
   }
 
