@@ -26,19 +26,6 @@ a, a:visited, a:hover, a:active {
   color: var(--white);
 }
 
-main {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: 1.5em auto 3em;
-  grid-template-areas:
-    "a c"
-    "b d"
-    "b e";
-  gap: 0.5em;
-  width: 100%;
-}
-
 label {
   font-weight: 400;
   font-size: 1.2em;
@@ -48,17 +35,47 @@ textarea {
   background: var(--gray-2);
   color: var(--white);
   padding: 1em;
+  min-width: 20em;
   font-family: monospace, monospace;
   font-size: 0.9em;
 }
 
+/* Horizontal layout, by default */
+main {
+  width: 100%;
+  flex-grow: 1;
+  display: grid;
+  grid-template-areas:
+    "a g c"
+    "b g d"
+    "b g e";
+  grid-template-columns: 46% 6% 46%;
+  grid-template-rows: 1.5em auto 3em;
+  gap: 0.5em;
+}
+
+/* Vertical layout for narrow screens */
+@media (max-width: 50em) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "a"
+      "b"
+      "g"
+      "c"
+      "d"
+      "e";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5em 1fr 0.5em 1.5em 1fr 3em;
+  }
+}
+
+
 main > label[for="official-result"] {
   grid-area: a;
-  margin-right: 2em;
 }
 main > #official-result {
   grid-area: b;
-  margin-right: 2em;
 }
 
 main > label {
@@ -68,6 +85,7 @@ main > #visualization {
   grid-area: d;
   cursor: pointer;
 }
+
 main > #copy-button {
   grid-area: e;
   width: 100%;
