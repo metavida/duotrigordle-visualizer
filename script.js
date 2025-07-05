@@ -1,3 +1,7 @@
+const officialResult = document.getElementById("official-result");
+const visualization = document.getElementById("visualization");
+const copyButton = document.getElementById("copy-button");
+
 const numberMap = {
   "0️⃣": "0",
   "1️⃣": "1",
@@ -20,6 +24,16 @@ const convertEmojiNumberToString = (emojiNumber) => {
   return parseInt(numberString, 10);
 };
 
+const disableNewVisualization = () => {
+  visualization.disabled = true;
+  copyButton.disabled = true;
+};
+
+const enableNewVisualization = () => {
+  visualization.disabled = false;
+  copyButton.disabled = false;
+};
+
 const renderNewVisualization = (value) => {
   const lines = value.split("\n");
 
@@ -27,6 +41,11 @@ const renderNewVisualization = (value) => {
   const footer = lines.slice(10);
   // the answer grid is lines 3 - 10
   const grid = lines.slice(2, 10).join(" ");
+
+  console.log({ header, footer, grid: grid.length });
+  if (header.length !== 2 || grid.length < 10) {
+    return "";
+  }
 
   // Next we'll get our sorted list of integers
   const numbers = grid
@@ -68,11 +87,17 @@ const renderNewVisualization = (value) => {
   return [...header, results.join(""), ...footer].join("\n");
 };
 
-const officialResult = document.getElementById("official-result");
-const visualization = document.getElementById("visualization");
-
 const populateVisualization = () => {
-  visualization.value = renderNewVisualization(officialResult.value);
+  const newVisualization = renderNewVisualization(officialResult.value);
+
+  if (!newVisualization) {
+    disableNewVisualization();
+    visualization.value = "";
+    return;
+  }
+
+  visualization.value = newVisualization;
+  enableNewVisualization();
 };
 
 // When the user pastes in their answer, convert it to the new visualization!
@@ -80,8 +105,6 @@ officialResult.addEventListener("input", function ({ target }) {
   populateVisualization();
 });
 populateVisualization();
-
-const copyButton = document.getElementById("copy-button");
 
 const copyToClipboard = () => {
   // Copy the value to the clipboard
