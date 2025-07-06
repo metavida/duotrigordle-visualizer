@@ -8,7 +8,7 @@ The new visualization shows 1 square for each guess you make, right (🟩) or wr
 
 ## Local Development
 
-### Prerequiesites
+### Prerequisites
 
 You'll need a recent-ish version of node installed.
 
