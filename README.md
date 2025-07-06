@@ -22,7 +22,7 @@ $ npx serve@latest -l 3032
 
 ### Editing TypeScript
 
-The code for generating the new visualization is writen in TypeScript. If you want to make modifications to that TypeScript code you'll need take a few extra steps:
+The code for generating the new visualization is written in TypeScript. If you want to make modifications to that TypeScript code you'll need take a few extra steps:
 
 1. `npm install`
 1. `npm start`
