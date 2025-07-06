@@ -1,5 +1,5 @@
 // Given a 2-digit UTF-8 emoji number like "2️⃣7️⃣", return the number "27"
-const convertEmojiNumberToString = (emojiNumber: string): number => {
+const convertEmojiNumberToNumber = (emojiNumber: string): number => {
   const numberString = emojiNumber
     .split("")
     .filter((char) => Number.isInteger(parseInt(char, 10)))
@@ -41,7 +41,7 @@ class Visualize {
     }
 
     // Get our sorted list of integers (guesses)
-    this.guesses = grid.split(" ").map(convertEmojiNumberToString);
+    this.guesses = grid.split(" ").map(convertEmojiNumberToNumber);
 
     this.isValid = true;
   }
