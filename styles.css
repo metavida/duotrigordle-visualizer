@@ -54,6 +54,20 @@ main {
   gap: 0.5em;
 }
 
+footer {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1em;
+  padding: 1em 0;
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+footer > :first-child {
+  flex-grow: 1;
+}
+
 /* Vertical layout for narrow screens */
 @media (max-width: 50em) {
   main {
@@ -69,7 +83,6 @@ main {
     grid-template-rows: 1.5em 1fr 0.5em 1.5em 1fr 3em;
   }
 }
-
 
 main > label[for="official-result"] {
   grid-area: a;
