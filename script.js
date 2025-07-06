@@ -18,7 +18,7 @@ const populateVisualization = () => {
   const vis = new Visualize();
   vis.initOrigVisualization(officialResult.value);
 
-  if (!vis.isValid) {
+  if (!vis.valid) {
     disableNewVisualization();
     visualization.value = "";
     return;

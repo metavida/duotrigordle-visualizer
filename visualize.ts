@@ -20,6 +20,10 @@ class Visualize {
     this.isValid = false;
   }
 
+  get valid(): boolean {
+    return this.isValid;
+  }
+
   // Initialize the Visualize object given
   // the original Duotrigordle share visualization.
   initOrigVisualization(value: string): void {

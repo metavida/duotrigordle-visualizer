@@ -13,6 +13,9 @@ class Visualize {
         this.guesses = [];
         this.isValid = false;
     }
+    get valid() {
+        return this.isValid;
+    }
     // Initialize the Visualize object given
     // the original Duotrigordle share visualization.
     initOrigVisualization(value) {
