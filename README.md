@@ -8,8 +8,26 @@ The new visualization shows 1 square for each guess you make, right (🟩) or wr
 
 ## Local Development
 
-If you've got most-any version of node installed, you can serve this app locally using the following:
+### Prerequiesites
+
+You'll need a recent-ish version of node installed.
+
+### Running the App
+
+You can start up the app right away with this command:
 
 ```
-$ npx serve@latest -l 3033
+$ npx serve@latest -l 3032
 ```
+
+### Editing TypeScript
+
+<!-- TODO: move visualize.js to a build directory & adjust tsconfig -->
+
+The code for generating the new visualization is writen in TypeScript. If you want to make modifications to that code you'll need take a few extra steps:
+
+1. `npm install`
+2. `npm run build`
+3. `npm start`
+
+<!-- TODO: Install the concurrent package so that "npm start" also runs "build:watch" -->
