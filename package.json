@@ -1,0 +1,21 @@
+{
+  "name": "duotrigordle-visualizer",
+  "version": "1.0.0",
+  "description": "[Duotrigordle](https://duotrigordle.com/) is a wonderful little game, but I don't love its current visualization. This SPA let you quickly generate an alternative visualization.",
+  "main": "script.js",
+  "scripts": {
+    "start": "concurrently 'tsc --watch' 'serve -l 3032'",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "concurrently": "^9.2.0",
+    "serve": "^14.2.4",
+    "typescript": "^5.8.3"
+  }
+}
