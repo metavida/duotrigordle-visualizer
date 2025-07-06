@@ -1,4 +1,4 @@
-import { renderNewVisualization } from "./visualize.js";
+import { Visualize } from "./visualize.js";
 
 const officialResult = document.getElementById("official-result");
 const visualization = document.getElementById("visualization");
@@ -15,15 +15,16 @@ const enableNewVisualization = () => {
 };
 
 const populateVisualization = () => {
-  const newVisualization = renderNewVisualization(officialResult.value);
+  const vis = new Visualize();
+  vis.initOrigVisualization(officialResult.value);
 
-  if (!newVisualization) {
+  if (!vis.isValid) {
     disableNewVisualization();
     visualization.value = "";
     return;
   }
 
-  visualization.value = newVisualization;
+  visualization.value = vis.renderNewVisualization();
   enableNewVisualization();
 };
 
