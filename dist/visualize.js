@@ -13,6 +13,8 @@ class Visualize {
         this.guesses = [];
         this.isValid = false;
     }
+    // Initialize the Visualize object given
+    // the original Duotrigordle share visualization.
     initOrigVisualization(value) {
         const lines = value.split("\n");
         this.header = lines.slice(0, 2);

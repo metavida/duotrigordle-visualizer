@@ -20,6 +20,8 @@ class Visualize {
     this.isValid = false;
   }
 
+  // Initialize the Visualize object given
+  // the original Duotrigordle share visualization.
   initOrigVisualization(value: string): void {
     const lines = value.split("\n");
 
@@ -55,8 +57,8 @@ class Visualize {
     let numWrongGuesses = 0;
 
     this.guesses
-      .sort((a: number, b: number) => a - b)
-      .forEach((nextCorrectGuess: number) => {
+      .sort((a, b) => a - b)
+      .forEach((nextCorrectGuess) => {
         currentGuess++;
 
         // If the next correct guess is greater than the current guess
