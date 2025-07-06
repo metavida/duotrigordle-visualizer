@@ -22,8 +22,6 @@ $ npx serve@latest -l 3032
 
 ### Editing TypeScript
 
-<!-- TODO: move visualize.js to a build directory & adjust tsconfig -->
-
 The code for generating the new visualization is writen in TypeScript. If you want to make modifications to that TypeScript code you'll need take a few extra steps:
 
 1. `npm install`

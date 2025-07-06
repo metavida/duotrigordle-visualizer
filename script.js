@@ -1,4 +1,4 @@
-import { Visualize } from "./visualize.js";
+import { Visualize } from "./dist/visualize.js";
 
 const officialResult = document.getElementById("official-result");
 const visualization = document.getElementById("visualization");
